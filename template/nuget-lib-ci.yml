@@ -1,0 +1,35 @@
+parameters:
+  slnPath: ''
+  nugetFeedGuid: '5733624b-8b6f-4e00-9220-90d2fb25000d'
+  packagesToPack: '**/*.csproj'
+  artifactName: 'drop'
+  versioningScheme: ''
+
+steps:
+
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      vstsFeed: ${{ parameters.nugetFeedGuid }}
+
+  - task: VSBuild@1
+    displayName: 'Build solution'
+    inputs:
+      solution: ${{ parameters.slnPath }}
+      platform: '$(BuildPlatform)'
+      configuration: '$(BuildConfiguration)'
+
+  - task: VSTest@2
+    displayName: 'VsTest - testAssemblies'
+
+  - task: NuGetCommand@2
+    displayName: 'NuGet pack'
+    inputs:
+      command: pack
+      packagesToPack: ${{ parameters.packagesToPack }}
+      versioningScheme: ${{ parameters.versioningScheme }}
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact'
+    inputs:
+      ArtifactName: ${{ parameters.artifactName }}

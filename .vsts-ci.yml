@@ -1,0 +1,10 @@
+queue: Hosted VS2017
+
+steps:
+
+  - template: template/nuget-lib-ci.yml
+    parameters:
+      slnPath: demo/NuGetLibCI.Demo/NuGetLibCI.Demo.sln
+      packagesToPack: '**/NuGetLibCI.Demo.csproj'
+
+  - script: echo hello world
