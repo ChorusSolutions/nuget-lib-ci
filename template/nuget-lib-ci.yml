@@ -26,6 +26,7 @@ steps:
     inputs:
       command: pack
       packagesToPack: ${{ parameters.packagesToPack }}
+      configuration: Release
       versioningScheme: ${{ parameters.versioningScheme }}
 
   - task: PublishBuildArtifacts@1
