@@ -2,9 +2,19 @@ queue: Hosted VS2017
 
 steps:
 
+  - script: echo building with assembly version as package version
+
   - template: template/nuget-lib-ci.yml
     parameters:
       slnPath: demo/NuGetLibCI.Demo/NuGetLibCI.Demo.sln
       packagesToPack: '**/NuGetLibCI.Demo.csproj'
+      artifactName: 'Version_is_Release_Number'
 
-  - script: echo hello world
+  - script: echo building with datetime as package version
+
+  - template: template/nuget-lib-ci.yml
+    parameters:
+      slnPath: demo/NuGetLibCI.Demo/NuGetLibCI.Demo.sln
+      packagesToPack: '**/NuGetLibCI.Demo.csproj'
+      versioningScheme: byPrereleaseNumber
+      artifactName: 'Version_is_DateTime'
