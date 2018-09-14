@@ -16,8 +16,7 @@ steps:
     displayName: 'Build solution'
     inputs:
       solution: ${{ parameters.slnPath }}
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
+      configuration: Release
 
   - task: VSTest@2
     displayName: 'VsTest - testAssemblies'
