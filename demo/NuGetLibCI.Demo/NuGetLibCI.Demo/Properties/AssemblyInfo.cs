@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NuGetLibCI.Demo")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A demo to show how our YAML CI build works for projects producing nuget packages")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Chorus Solutions")]
 [assembly: AssemblyProduct("NuGetLibCI.Demo")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
